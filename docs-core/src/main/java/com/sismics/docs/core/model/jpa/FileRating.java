@@ -37,6 +37,7 @@ public class FileRating implements Loggable {
 
     /**
      * Academics rating.
+     * BigDecimal (Java) -> decimal (SQL) 
      */
     @Column(name = "RAT_ACADEMICS_C", nullable = false)
     private BigDecimal academics;
