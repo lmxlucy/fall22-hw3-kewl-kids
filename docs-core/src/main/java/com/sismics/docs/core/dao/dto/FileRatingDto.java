@@ -1,7 +1,5 @@
 package com.sismics.docs.core.dao.dto;
 
-import java.math.BigDecimal;
-
 /**
  * File Rating DTO.
  */
@@ -19,27 +17,27 @@ public class FileRatingDto {
     /**
      * Academics rating.
      */
-    private BigDecimal academics;
+    private Integer academics;
 
     /**
      * Activities rating.
      */
-    private BigDecimal activities;
+    private Integer activities;
 
     /**
      * Experience rating.
      */
-    private BigDecimal experience;
+    private Integer experience;
 
     /**
      * Awards rating.
      */
-    private BigDecimal awards;
+    private Integer awards;
 
     /**
      * Overall rating.
      */
-    private BigDecimal overall;
+    private Integer overall;
 
     /**
      * Rating comment.
@@ -67,43 +65,43 @@ public class FileRatingDto {
         this.creatorName = creatorName;
     }
     
-    public BigDecimal getAcademics() {
+    public Integer getAcademics() {
         return academics;
     }
 
-    public void setAcademics(BigDecimal academics) {
+    public void setAcademics(Integer academics) {
         this.academics = academics;
     }
 
-    public BigDecimal getActivities() {
+    public Integer getActivities() {
         return activities;
     }
 
-    public void setActivities(BigDecimal activities) {
+    public void setActivities(Integer activities) {
         this.activities = activities;
     }
 
-    public BigDecimal getExperience() {
+    public Integer getExperience() {
         return experience;
     }
 
-    public void setExperience(BigDecimal experience) {
+    public void setExperience(Integer experience) {
         this.experience = experience;
     }
 
-    public BigDecimal getAwards() {
+    public Integer getAwards() {
         return awards;
     }
 
-    public void setAwards(BigDecimal awards) {
+    public void setAwards(Integer awards) {
         this.awards = awards;
     }
 
-    public BigDecimal getOverall() {
+    public Integer getOverall() {
         return overall;
     }
 
-    public void setOverall(BigDecimal overall) {
+    public void setOverall(Integer overall) {
         this.overall = overall;
     }
 

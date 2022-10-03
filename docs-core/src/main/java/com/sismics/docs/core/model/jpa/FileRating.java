@@ -1,6 +1,5 @@
 package com.sismics.docs.core.model.jpa;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -37,34 +36,34 @@ public class FileRating implements Loggable {
 
     /**
      * Academics rating.
-     * BigDecimal (Java) -> decimal (SQL) 
+     * Integer (Java) -> decimal (SQL) 
      */
     @Column(name = "RAT_ACADEMICS_C", nullable = false)
-    private BigDecimal academics;
+    private Integer academics;
     
     /**
      * Activities rating.
      */
     @Column(name = "RAT_ACTIVITIES_C", nullable = false)
-    private BigDecimal activities;
+    private Integer activities;
 
     /**
      * Experience rating.
      */
     @Column(name = "RAT_EXPERIENCE_C", nullable = false)
-    private BigDecimal experience;
+    private Integer experience;
 
     /**
      * Awards rating.
      */
     @Column(name = "RAT_AWARDS_C", nullable = false)
-    private BigDecimal awards;
+    private Integer awards;
 
     /**
      * Overall rating.
      */
     @Column(name = "RAT_OVERALL_C", nullable = false)
-    private BigDecimal overall;
+    private Integer overall;
 
     /**
      * Comment.
@@ -117,43 +116,43 @@ public class FileRating implements Loggable {
         this.deleteDate = deleteDate;
     }
     
-    public BigDecimal getAcademics() {
+    public Integer getAcademics() {
         return academics;
     }
 
-    public void setAcademics(BigDecimal academics) {
+    public void setAcademics(Integer academics) {
         this.academics = academics;
     }
 
-    public BigDecimal getActivities() {
+    public Integer getActivities() {
         return activities;
     }
 
-    public void setActivities(BigDecimal activities) {
+    public void setActivities(Integer activities) {
         this.activities = activities;
     }
 
-    public BigDecimal getExperience() {
+    public Integer getExperience() {
         return experience;
     }
 
-    public void setExperience(BigDecimal experience) {
+    public void setExperience(Integer experience) {
         this.experience = experience;
     }
 
-    public BigDecimal getAwards() {
+    public Integer getAwards() {
         return awards;
     }
 
-    public void setAwards(BigDecimal awards) {
+    public void setAwards(Integer awards) {
         this.awards = awards;
     }
 
-    public BigDecimal getOverall() {
+    public Integer getOverall() {
         return overall;
     }
 
-    public void setOverall(BigDecimal overall) {
+    public void setOverall(Integer overall) {
         this.overall = overall;
     }
 

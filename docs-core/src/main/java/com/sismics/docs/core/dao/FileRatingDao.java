@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,12 +20,12 @@ import java.util.UUID;
  */
 public class FileRatingDao {
         /**
-     * Creates a new rating.
-     * 
-     * @param rating Rating
-     * @param userId User ID
-     * @return New ID
-     */
+        * Creates a new rating.
+        * 
+        * @param rating Rating
+        * @param userId User ID
+        * @return New ID
+        */
     public String create(FileRating rating, String userId) {
         // Create the UUID
         rating.setId(UUID.randomUUID().toString());
@@ -102,11 +101,11 @@ public class FileRatingDao {
             int i = 0;
             FileRatingDto ratingDto = new FileRatingDto();
             ratingDto.setId((String) o[i++]);
-            ratingDto.setAcademics((BigDecimal) o[i++]);
-            ratingDto.setActivities((BigDecimal) o[i++]);
-            ratingDto.setExperience((BigDecimal) o[i++]);
-            ratingDto.setAwards((BigDecimal) o[i++]);
-            ratingDto.setOverall((BigDecimal) o[i++]);
+            ratingDto.setAcademics((Integer) o[i++]);
+            ratingDto.setActivities((Integer) o[i++]);
+            ratingDto.setExperience((Integer) o[i++]);
+            ratingDto.setAwards((Integer) o[i++]);
+            ratingDto.setOverall((Integer) o[i++]);
             ratingDto.setComment((String) o[i++]);
             ratingDto.setCreateTimestamp(((Timestamp) o[i++]).getTime());
             ratingDto.setCreatorName((String) o[i++]);
