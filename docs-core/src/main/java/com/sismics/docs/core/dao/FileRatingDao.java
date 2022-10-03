@@ -9,6 +9,7 @@ import com.sismics.util.context.ThreadLocalContext;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -81,21 +82,22 @@ public class FileRatingDao {
     }
     
     /**
-     * Get all ratings on a file.
+     * Get all ratingDtos on a file.
      * 
      * @param fileId File ID
      * @return List of ratings
      */
-    public List<FileRatingDto> getByFileId(String fileId) {
+    public List<FileRatingDto> getDtoByFileId(String fileId) {
         EntityManager em = ThreadLocalContext.get().getEntityManager();
-        StringBuilder sb = new StringBuilder("select r.RAT_ID_C, r.RAT_ACADEMICS_C, r.RAT_ACTIVITIES_C, r.RAT_EXPERIENCE_C, r.RAT_AWARDS_C,  r.RAT_OVERALL_C, r.RAT_COMMENT_C, r.RAT_CREATEDATE_D, u.USE_USERNAME_C from T_FILE_RATING r, T_USER u");
+        StringBuilder sb = new StringBuilder(
+                "select r.RAT_ID_C, r.RAT_ACADEMICS_C, r.RAT_ACTIVITIES_C, r.RAT_EXPERIENCE_C, r.RAT_AWARDS_C,  r.RAT_OVERALL_C, r.RAT_COMMENT_C, r.RAT_CREATEDATE_D, u.USE_USERNAME_C from T_FILE_RATING r, T_USER u");
         sb.append(" where r.RAT_IDFIL_C = :fileId and r.RAT_IDUSER_C = u.USE_ID_C and r.RAT_DELETEDATE_D is null ");
         sb.append(" order by r.RAT_CREATEDATE_D asc ");
         Query q = em.createNativeQuery(sb.toString());
         q.setParameter("fileId", fileId);
         @SuppressWarnings("unchecked")
         List<Object[]> l = q.getResultList();
-        
+
         List<FileRatingDto> ratingDtoList = new ArrayList<>();
         for (Object[] o : l) {
             int i = 0;
@@ -112,5 +114,20 @@ public class FileRatingDao {
             ratingDtoList.add(ratingDto);
         }
         return ratingDtoList;
+    }
+    
+    /**
+     * Get all ratings on a file.
+     * 
+     * @param fileId File ID
+     * @return List of ratings
+     */
+    public List<FileRating> getByFileId(String fileId) {
+        EntityManager em = ThreadLocalContext.get().getEntityManager();
+        TypedQuery<FileRating> q = em.createQuery(
+                "select r from FileRating where r.RAT_IDFIL_C = :fileId and r.RAT_DELETEDATE_D is null order by r.RAT_CREATEDATE_D asc ",
+                FileRating.class);
+        q.setParameter("fileId", fileId);
+        return q.getResultList();
     }
 }
